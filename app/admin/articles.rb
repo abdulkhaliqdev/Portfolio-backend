@@ -1,18 +1,26 @@
 ActiveAdmin.register Article do
-  permit_params :title, :description, :body, :project_type_id
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :title, :description, :body, :project_type_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:title, :description, :body, :project_type_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params :title, :description, :body, :project_type_id, :main_image
+
+  form do |f|
+    f.semantic_errors *f.object.errors.attribute_names
+    f.inputs
+    f.inputs do
+      f.input :main_image, as: :file
+    end
+    f.actions
+  end
   
+  show do
+    attributes_table do
+      row :title
+      row :description
+      row :body
+      row :project_type do |category|
+        category.title
+      end
+      row :main_image do |ad|
+        image_tag url_for(ad.main_image)
+      end
+    end
+  end  
 end
