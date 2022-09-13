@@ -15,3 +15,22 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+@import 'activeadmin/quill_editor/quill.snow';
+@import 'activeadmin/quill_editor_input';
+
+
+require('activeadmin_quill_editor')
+
+
+//style
+.form_container {
+	display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
+  align-content: stretch;
+  background: #e3e3e3;
+  padding: 65px;
+}

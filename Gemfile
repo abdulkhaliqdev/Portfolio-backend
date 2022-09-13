@@ -37,6 +37,10 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'sassc-rails'
+gem 'rswag'
+gem 'rspec-rails'
+gem 'activeadmin_quill_editor'
+gem 'sassc'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -57,3 +61,7 @@ end
 
 
 gem "importmap-rails", "~> 1.1"
+
+gem "sass-rails", "~> 6.0"
+
+gem "active_model_serializers", "~> 0.10.13"
