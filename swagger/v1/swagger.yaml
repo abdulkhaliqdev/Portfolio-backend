@@ -1,0 +1,22 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/home/index":
+    get:
+      summary: Get Home Page Data
+      tags:
+      - Projects
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+        '404':
+          description: Data not found
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+

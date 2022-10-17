@@ -37,6 +37,10 @@ gem 'cancancan'
 gem 'draper'
 gem 'pundit'
 gem 'sassc-rails'
+gem 'rswag'
+gem 'rspec-rails'
+gem 'activeadmin_quill_editor'
+gem 'sassc'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -47,6 +51,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec"
+  gem "pry"
 end
 
 group :development do
@@ -56,3 +61,7 @@ end
 
 
 gem "importmap-rails", "~> 1.1"
+
+gem "sass-rails", "~> 6.0"
+
+gem "active_model_serializers", "~> 0.10.13"
