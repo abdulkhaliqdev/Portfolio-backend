@@ -4,12 +4,11 @@ info:
   title: API V1
   version: v1
 paths:
-  "/home/index":
+  "/api/v1/home/index":
     get:
       summary: Get Home Page Data
       tags:
-      - Projects
-      parameters: []
+      - Home
       responses:
         '200':
           description: Successful
@@ -19,4 +18,79 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-
+  "/api/v1/articles":
+    get:
+      summary: Article index Page
+      tags:
+      - Article
+      responses:
+        '200':
+          description: Successful
+        '404':
+          description: Data not found
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+  "/api/v1/articles/{id}":
+    get:
+      summary: Article Show Page
+      tags:
+      - Article
+      parameters:
+        - name: id
+          in: path
+          description: Article ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Data not found
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+  "/api/v1/projects":
+    get:
+      summary: Project index Page
+      tags:
+      - Project
+      responses:
+        '200':
+          description: Successful
+        '404':
+          description: Data not found
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+  "/api/v1/projects/{id}":
+    get:
+      summary: Project index Page
+      tags:
+      - Project
+      parameters:
+        - name: id
+          in: path
+          description: Project ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successful
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Data not found
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:

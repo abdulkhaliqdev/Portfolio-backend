@@ -4,15 +4,19 @@ ActiveAdmin.register Article do
   form do |f|
     project_type = ProjectType.all.map { |site| ["#{site.title}", site.id ]}
     f.semantic_errors *f.object.errors.attribute_names
-    f.input :project_type, as: :select ,collection:  project_type
-    f.input :title
-    f.input :description
-    f.input :body, as: :quill_editor
-    f.inputs do
-      f.input :main_image, as: :file
-    end
-    f.inputs do
-      f.input :image_gallery, as: :file, input_html: { multiple: true }
+    tabs do
+      tab 'Advanced', html_options: { class: 'specific_css_class' } do
+        f.input :project_type, as: :select ,collection:  project_type
+        f.input :title
+        f.input :description
+        f.input :body, as: :quill_editor
+        f.inputs do
+          f.input :main_image, as: :file
+        end
+        f.inputs do
+          f.input :image_gallery, as: :file, input_html: { multiple: true }
+        end
+      end
     end
     f.actions
   end
