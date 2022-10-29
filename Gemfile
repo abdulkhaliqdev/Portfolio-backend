@@ -21,6 +21,7 @@ gem 'sassc'
 gem "importmap-rails", "~> 1.1"
 gem "sass-rails", "~> 6.0"
 gem "active_model_serializers", "~> 0.10.13"
+gem 'rack-cors'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
