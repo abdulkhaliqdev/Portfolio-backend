@@ -1,5 +1,5 @@
 class ArticleSerializer < BaseSerializer
-  attributes :id, :title, :project_type, :short_description, :body, :main_image_url, :image_gallery_urls, :created_at
+  attributes :id, :title, :type, :short_description, :body, :main_image_url, :image_gallery_urls, :created_at
 
   def short_description
     object.description
@@ -17,9 +17,5 @@ class ArticleSerializer < BaseSerializer
 
   def created_at
     object.created_at.strftime("%a ,%d %B %Y") 
-  end
-
-  def project_type
-    object.project_type.title
   end
 end

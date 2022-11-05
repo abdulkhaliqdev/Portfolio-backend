@@ -1,6 +1,5 @@
 class ProjectSerializer < BaseSerializer
-  attributes :id, :title, :short_description, :body, :image_url, :created_at
-  belongs_to :project_type
+  attributes :id, :title, :type, :short_description, :body, :image_url, :created_at
 
   def short_description
     object.description
@@ -12,9 +11,5 @@ class ProjectSerializer < BaseSerializer
 
   def created_at
     object.created_at.strftime("%a ,%d %B %Y") 
-  end
-
-  def project_type
-    object.project_type.title
   end
 end
