@@ -10,14 +10,14 @@ class Api::V1::HomeController < Api::BaseController
   private
 
   def projects
-    @projects ||= Project.eager_load(:image_attachment).limit(4)
+    @projects ||= Project.all.limit(4)
   end
 
   def articles
-    @articles ||= Article.eager_load(:main_image_attachment, :image_gallery_attachments).limit(4)
+    @articles ||= Article.all.limit(4)
   end
 
   def user
-    @user ||= User.eager_load(:prime_image_attachment, :secondary_image_attachment, :third_image_attachment).first
+    @user ||= User.first
   end
 end

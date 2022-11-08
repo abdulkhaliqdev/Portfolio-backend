@@ -6,13 +6,11 @@ class ArticleSerializer < BaseSerializer
   end
 
   def image_url
-    rails_blob_path(object.main_image , only_path: true)
+    "#{Rails.application.default_url_options[:host]}#{rails_blob_path(object&.main_image , only_path: true)}"
   end
   
   def image_gallery_urls
-    object.image_gallery.map do |image|
-      rails_blob_path(image , only_path: true)
-    end
+    object.image_gallery.map { |image| "#{Rails.application.default_url_options[:host]}#{rails_blob_path(image , only_path: true)}" }
   end
 
   def created_at

@@ -4,14 +4,14 @@ class UserSerializer < BaseSerializer
                     :prime_image, :secondary_image, :third_image
 
   def prime_image
-    rails_blob_path(object.prime_image , only_path: true)
+    "#{Rails.application.default_url_options[:host]}#{rails_blob_path(object.prime_image, only_path: true)}"
   end
 
   def secondary_image
-    rails_blob_path(object.secondary_image , only_path: true)
+    "#{Rails.application.default_url_options[:host]}#{rails_blob_path(object.secondary_image, only_path: true)}"
   end
 
   def third_image
-    rails_blob_path(object.third_image , only_path: true)
+    "#{Rails.application.default_url_options[:host]}#{rails_blob_path(object.third_image, only_path: true)}"
   end
 end

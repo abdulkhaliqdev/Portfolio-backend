@@ -6,7 +6,7 @@ class ProjectSerializer < BaseSerializer
   end
 
   def image_url
-    rails_blob_path(object&.image , only_path: true)
+    "#{Rails.application.default_url_options[:host]}#{rails_blob_path(object&.image , only_path: true)}"
   end
 
   def created_at
