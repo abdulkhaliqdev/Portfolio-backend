@@ -1,10 +1,10 @@
 class Api::V1::ProjectsController < Api::BaseController
   def index
-    render json: projects
+    render json: projects, body: false
   end
 
   def show
-    render json: project
+    render json: project, body: true
   end
 
   private

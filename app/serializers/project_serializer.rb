@@ -1,5 +1,7 @@
 class ProjectSerializer < BaseSerializer
-  attributes :id, :title, :type, :short_description, :body, :image_url, :created_at
+  attributes :id, :title, :type, :short_description, :image_url, :created_at
+
+  attribute  :body, if: :include_body?
 
   def short_description
     object.description

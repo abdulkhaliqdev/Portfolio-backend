@@ -1,10 +1,10 @@
 class Api::V1::ArticlesController < Api::BaseController
   def index
-    render json: articles
+    render json: articles, body: false
   end
 
   def show
-    render json: article
+    render json: article, body: true
   end
 
   private
