@@ -6,6 +6,6 @@ class Api::V1::UsersController < Api::BaseController
   private
 
   def users
-    @users ||= User.all
+    @users ||= User.first
   end
 end

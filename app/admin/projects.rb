@@ -1,11 +1,12 @@
 ActiveAdmin.register Project do
-  permit_params :title, :description, :body, :project_type_id, :image
+  permit_params :title, :description, :body, :project_type_id, :image, :hashtag
 
   form do |f|
     project_type = ProjectType.all.map { |site| ["#{site.title}", site.id ]}
     f.semantic_errors *f.object.errors.attribute_names
     f.input :project_type, as: :select ,collection:  project_type
     f.input :title
+    f.input :hashtag
     f.input :description
     f.input :body, as: :quill_editor
     f.inputs do
@@ -14,26 +15,10 @@ ActiveAdmin.register Project do
     f.actions
   end
 
-  controller do
-    def create
-      @project = Project.new(project_params)
-      if @project.save! 
-        redirect_to admin_projects_path
-      else
-        render :new
-      end
-    end
-  
-    private
-
-    def project_params
-      params.required(:project).permit(:title, :description, :body, :project_type_id, :image)
-    end
-  end
-
   index do
     id_column
     column :title
+    column :hashtag
     column :description
     column :project_type
     column :image, as: :grid do |product|
@@ -45,6 +30,7 @@ ActiveAdmin.register Project do
   
   show do
     attributes_table do
+      row :hashtag
       row :title
       row :description
       row :body

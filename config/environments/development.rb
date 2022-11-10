@@ -56,6 +56,14 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = "http://localhost:3001"
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    user_name:            'abdulkhaliqdev@gmail.com',
+    password:             'jedozgynposzhgiz',
+    enable_starttls_auto: true,
+  }
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true

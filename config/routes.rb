@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :articles, only: [:index, :show]
       resources :projects, only: [:index, :show]
+      resources :contacts, only: [:create]
       get 'users/index'
       get 'home/index'
     end
