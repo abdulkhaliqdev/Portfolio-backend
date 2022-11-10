@@ -7,6 +7,7 @@ ActiveAdmin.register Article do
     tabs do
       tab 'Advanced', html_options: { class: 'specific_css_class' } do
         f.input :project_type, as: :select ,collection:  project_type
+        f.input :hashtag
         f.input :title
         f.input :description
         f.input :body, as: :quill_editor
@@ -23,6 +24,7 @@ ActiveAdmin.register Article do
 
   index do
     id_column
+    column :hashtag
     column :title
     column :description
     column :project_type
@@ -42,6 +44,7 @@ ActiveAdmin.register Article do
   show do
     attributes_table do
       row :title
+      row :hashtag
       row :description
       row :body, as: :quill_editor
       row :project_type do |category|
