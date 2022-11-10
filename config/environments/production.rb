@@ -72,6 +72,14 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   Rails.application.routes.default_url_options[:host] = "https://portfolio-backend-abdul-khaliq.herokuapp.com"
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    user_name:            'abdulkhaliqdev@gmail.com',
+    password:             'jedozgynposzhgiz',
+    enable_starttls_auto: true,
+  }
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
