@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_200906) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_09_230855) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,7 +81,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_200906) do
     t.bigint "project_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hashtag", default: ""
     t.index ["project_type_id"], name: "index_articles_on_project_type_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "project_types", force: :cascade do |t|
@@ -98,6 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_200906) do
     t.bigint "project_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hashtag", default: ""
     t.index ["project_type_id"], name: "index_projects_on_project_type_id"
   end
 

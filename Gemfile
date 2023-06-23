@@ -35,3 +35,5 @@ group :development do
 end
 
 
+
+gem "multi_json", "~> 1.15"
